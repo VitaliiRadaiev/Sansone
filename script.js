@@ -81,3 +81,37 @@
         })
     }
 }
+
+{
+    let carousels = document.querySelectorAll('[data-slider="carousel"]');
+    if(carousels.length) {
+        carousels.forEach(carousel => {
+            let sliderData = new Swiper(carousel.querySelector('.swiper'), {
+                speed: 600,
+                loop: true,
+                pagination: {
+                    el: carousel.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: carousel.querySelector('.carousel__slider-btn.next'),
+                    prevEl: carousel.querySelector('.carousel__slider-btn.prev'),
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    980: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                },
+            });
+        })
+    }
+}
